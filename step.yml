@@ -1,0 +1,66 @@
+#
+# A couple of useful guides & docs:
+#
+# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
+# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
+# - Bitrise docs: http://devcenter.bitrise.io/
+# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
+
+title: |-
+  gradle-dependency-check
+summary: |
+  OWASP dependency analysis for Gradle files
+description: |
+  Uses jeremylong/DependencyCheck to search Gradle for CVE vulnerabilites.
+  https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html must be setup on the project before a first run
+
+  The generated HTML document will be placed into $generated_report_path and copied into $BITRISE_DEPLOY_DIR by default.
+  Remember to run the "Deploy to bitrise.io" step in order to persist artifacts.
+website: https://github.com/odemolliens/bitrise-step-gradle-dependency-checker
+source_code_url: https://github.com/odemolliens/bitrise-step-gradle-dependency-checker
+support_url: https://github.com/odemolliens/bitrise-step-gradle-dependency-checker/issues
+host_os_tags:
+    - osx-10.10
+
+project_type_tags:
+    - ios
+
+type_tags:
+    - dependency
+    - gradle
+    - check
+    - security
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+deps:
+  brew:
+  - name: git
+
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+
+inputs:
+  - source_root_path: "$BITRISE_SOURCE_DIR"
+    opts:
+      title: "Android Source Code Directory path"
+      is_required: true
+  - app_title: "$BITRISE_APP_TITLE"
+    opts:
+      title: "App title"
+      is_required: true
+  - generated_report_path: "build/reports"
+      opts:
+      title: "Path of all reports"
+      is_required: true
+  - deploy_dir: "$BITRISE_DEPLOY_DIR"
+    opts:
+      title: "Deploy directory to output scan artifacts"
+      is_required: true
