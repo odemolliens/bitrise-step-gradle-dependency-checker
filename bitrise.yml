@@ -30,11 +30,6 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
-    - path::./:
-        title: Step Test
-        run_if: true
-        inputs:
-        - app_title: "Test App"
     - script:
         inputs:
         - content: |

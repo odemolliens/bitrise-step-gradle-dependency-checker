@@ -52,10 +52,6 @@ inputs:
     opts:
       title: "Android Source Code Directory path"
       is_required: true
-  - app_title: "$BITRISE_APP_TITLE"
-    opts:
-      title: "App title"
-      is_required: true
   - generated_report_path: "build/reports"
       opts:
       title: "Path of all reports"
