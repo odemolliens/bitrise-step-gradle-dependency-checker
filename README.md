@@ -3,9 +3,32 @@
 Uses `dependency-checker` to search build.gradle for CVE vulnerabilites
 
 
-## How to use this Step
-
+## Pre-requesite
 **Before using this step**, you must setup [dependency-check-gradle](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html) on your project because gradle doesn't allow to add dependency on the fly.
+
+Example for a React Native / Android project:
+
+```
+buildscript {
+(...)
+    dependencies {
+        classpath 'org.owasp:dependency-check-gradle:6.1.6'
+    }
+}
+
+allprojects {
+    apply plugin: 'org.owasp.dependencycheck'
+    dependencyCheck {
+        format = 'HTML'
+        failBuildOnCVSS = 7
+        outputDirectory = "./build/gradle-security-report/"+project.name
+    }
+}
+```
+
+`outputDirectory` field with path  `"./build/gradle-security-report/"+project.name` is mandatory.
+
+## How to use this Step
 
 Can be run directly with the [bitrise CLI](https://github.com/bitrise-io/bitrise),
 just `git clone` this repository, `cd` into it's folder in your Terminal/Command Line
