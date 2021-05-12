@@ -57,7 +57,7 @@ inputs:
       title: "The module that will be analyzed"
       is_required: true
   - generated_report_path: "./build/gradle-audit-reports/"
-      opts:
+    opts:
       title: "Path of all reports"
       is_required: true
   - deploy_dir: "$BITRISE_DEPLOY_DIR"
