@@ -1,3 +1,5 @@
+<img align="right" src="assets/icon.svg" width="150" height="150" >
+
 # gradle-dependency-checker
 
 Uses `gradle-dependency-checker` to search build.gradle for CVE vulnerabilites
