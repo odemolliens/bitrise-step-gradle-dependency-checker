@@ -5,7 +5,7 @@
 Uses `gradle-dependency-checker` to search build.gradle for CVE vulnerabilites
 
 
-## Pre-requesite
+## Prerequisite
 **Before using this step**, you must setup [dependency-check-gradle](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html) on your project because gradle doesn't allow to add dependency on the fly.
 
 Example for a React Native / Android project:
@@ -28,7 +28,7 @@ allprojects {
 }
 ```
 
-`outputDirectory` field with path  `"./build/gradle-security-report/"+project.name` is mandatory.
+⚠️ `outputDirectory` field with path `"./build/gradle-security-report/"+project.name` is mandatory for this step
 
 ## How to use this Step
 
