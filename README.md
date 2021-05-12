@@ -1,6 +1,6 @@
-# dependency-checker
+# gradle-dependency-checker
 
-Uses `dependency-checker` to search build.gradle for CVE vulnerabilites
+Uses `gradle-dependency-checker` to search build.gradle for CVE vulnerabilites
 
 
 ## Pre-requesite
