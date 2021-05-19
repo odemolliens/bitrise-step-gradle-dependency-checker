@@ -23,12 +23,12 @@ allprojects {
     dependencyCheck {
         format = 'HTML'
         failBuildOnCVSS = 7
-        outputDirectory = "./build/gradle-security-report/"+project.name
+        outputDirectory = System.env.BITRISE_DEPLOY_DIR
     }
 }
 ```
 
-⚠️ `outputDirectory` field with path `"./build/gradle-security-report/"+project.name` is mandatory for this step
+⚠️ `outputDirectory` field with path `oSystem.env.BITRISE_DEPLOY_DIR` is mandatory for this step
 
 ## How to use this Step
 

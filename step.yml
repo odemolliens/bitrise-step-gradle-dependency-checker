@@ -15,7 +15,7 @@ description: |
   Uses jeremylong/DependencyCheck to search Gradle for CVE vulnerabilites.
   https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html must be setup on the project before a first run
 
-  The generated report will be placed into $generated_report_path and copied into $BITRISE_DEPLOY_DIR by default.
+  The generated report will be placed into $BITRISE_DEPLOY_DIR by default.
   Remember to run the "Deploy to bitrise.io" step in order to persist artifacts.
 website: https://github.com/odemolliens/bitrise-step-gradle-dependency-checker
 source_code_url: https://github.com/odemolliens/bitrise-step-gradle-dependency-checker
@@ -55,10 +55,6 @@ inputs:
   - android_target_name: "app"
     opts:
       title: "The module that will be analyzed"
-      is_required: true
-  - generated_report_path: "./build/gradle-audit-reports/"
-    opts:
-      title: "Path of all reports"
       is_required: true
   - deploy_dir: "$BITRISE_DEPLOY_DIR"
     opts:

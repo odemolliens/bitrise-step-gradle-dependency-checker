@@ -7,7 +7,6 @@ set -ex
 # Dev purpose only
 #export BITRISE_SOURCE_DIR="./"
 #export source_root_path="./android"
-#export generated_report_path="./build/gradle-security-report/"
 #export BITRISE_DEPLOY_DIR="./deploy/"
 #export android_target_name="app"
 ###
@@ -16,6 +15,5 @@ cd $source_root_path
 #Run analyze
 ./gradlew :$android_target_name:dependencyCheckAggregate
 cd $BITRISE_SOURCE_DIR
-#Copy and zip results into /deploy/ folder
-cp -R $generated_report_path $BITRISE_DEPLOY_DIR/gradle-audit-reports/
-zip -r $BITRISE_DEPLOY_DIR/gradle-audit-reports.zip $BITRISE_DEPLOY_DIR/gradle-audit-reports/*
+# Rename file to allow other dependency checker to be executed and stored in the artifact folder
+mv $deploy_dir/dependency-check-report.html $deploy_dir/gradle-dependency-check-report.html
