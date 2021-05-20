@@ -28,7 +28,7 @@ allprojects {
 }
 ```
 
-⚠️ `outputDirectory` field with path `oSystem.env.BITRISE_DEPLOY_DIR` is mandatory for this step
+⚠️ `outputDirectory` field with path `System.env.BITRISE_DEPLOY_DIR` is mandatory for this step
 
 ## How to use this Step
 
