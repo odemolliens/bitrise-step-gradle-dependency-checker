@@ -30,6 +30,19 @@ allprojects {
 
 ⚠️ `outputDirectory` field with path `System.env.BITRISE_DEPLOY_DIR` is mandatory for this step
 
+ℹ️ You can set `skipConfigurations` to not check configured configurations
+
+```
+allprojects {
+    apply plugin: 'org.owasp.dependencycheck'
+    dependencyCheck {
+        format = 'HTML'
+        failBuildOnCVSS = 7
+        outputDirectory = System.env.BITRISE_DEPLOY_DIR
+        skipConfigurations += 'lintClassPath'
+    }
+  ```
+
 ## How to use this Step
 
 Can be run directly with the [bitrise CLI](https://github.com/bitrise-io/bitrise),
